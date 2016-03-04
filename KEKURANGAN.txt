@@ -1,0 +1,9 @@
+- Halaman Forgot Password belum ada [udah]
+
+
+->profile (create update status ,disyplay profile detail,disyplay project)   udah
+->follower + following   [belom]
+->project (list project) + result project   [udah]
+->forum general(show) + create thread        [udah]
+->forum hacking defence(show) + create thread  [udah]
+->forum zero day vulnerablity(show) + create thread [udah]

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html class="st-layout ls-top-navbar-large ls-bottom-footer show-sidebar sidebar-l3" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Nuzzle</title>
+
+  <link href="css/vendor/all.css" rel="stylesheet">
+
+  <link href="css/app/app.css" rel="stylesheet">
+  <script>
+    $(document).ready(function(){
+      $('.status').click(function(e){ 
+        $('.arrow').css("left", 0);
+        e.preventDefault();
+     });
+     $('.photos').click(function(e) {
+        $('.arrow').css("left", 146);
+        e.preventDefault();
+    });
+
+});
+  </script>
+</head>
+
+<body>
+
+  <!-- Wrapper required for sidebar transitions -->
+  <div class="st-container">
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-size-large navbar-default navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+       
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="main-nav">
+          <img src="images/people/110/logopelin.gif" alt="people" height="70px" weight="100px" />
+          <ul class="nav navbar-nav navbar-nav-bordered navbar-right">
+            <!-- notifications -->
+            <li class="dropdown notifications updates">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-bell-o"></i>
+                <!-- <span class="badge badge-primary">4</span> -->
+              </a>
+              <ul class="dropdown-menu" role="notification">
+                <li class="dropdown-header">Notifications</li>
+                <li class="media">
+                  <div class="pull-right">
+                    <span class="label label-success">New</span>
+                  </div>
+                  <div class="media-left">
+                    <img src="images/people/110/photo.png" alt="people" class="img-circle" width="30">
+                  </div>
+                  <div class="media-body">
+                    <a href="#">Adrian D.</a> posted <a href="#">a photo</a> on his timeline.
+                    <br/>
+                    <span class="text-caption text-muted">5 mins ago</span>
+                  </div>
+                </li>
+                <li class="media">
+                  <div class="pull-right">
+                    <span class="label label-success">New</span>
+                  </div>
+                  <div class="media-left">
+                    <img src="images/people/110/photo.png" alt="people" class="img-circle" width="30">
+                  </div>
+                  <div class="media-body">
+                    <a href="#">Bill</a> posted <a href="#">a comment</a> on Adrian's recent <a href="#">post</a>.
+                    <br/>
+                    <span class="text-caption text-muted">3 hrs ago</span>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <!-- // END notifications -->
+            <!-- User -->
+            <div class="navbar-right">
+			  <ul class="nav navbar-nav navbar-nav-bordered navbar-nav-margin-right">
+				<!-- user -->
+				<li class="dropdown user active">
+				  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					  %if images == "":
+						<img src="images/people/photo.png" alt="" class="img-circle" />{{name}}<span class="caret"></span>			  
+					  %else:
+						<img src="images/people/{{images}}" alt="" class="img-circle" />{{name}}<span class="caret"></span>
+					  %end			  
+				  </a>
+				  <ul class="dropdown-menu" role="menu">
+					<li><a href="/EditProfileMember"><i class="fa fa-user"></i>Edit Profile</a></li>
+					<li><a href="/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+				  </ul>
+				</li>
+				<!-- // END user -->
+			  </ul>
+			</div>
+        </div>
+        <!-- /.navbar-collapse -->
+
+      </div>
+    </div>
+
+    <!-- Sidebar component with st-effect-1 (set on the toggle button within the navbar) -->
+    <div class="sidebar left sidebar-size-3 sidebar-offset-0 sidebar-visible-desktop sidebar-visible-mobile sidebar-skin-dark" id="sidebar-menu" data-type="collapse">
+      <div data-scrollable>
+
+            <div class="sidebar-block">
+              <div class="profile">
+                <a href="#">
+				  %if images == "":
+				    <img src="images/people/photo.png" alt="people" class="img-circle width-80" />				  
+				  %else:
+				    <img src="images/people/{{images}}" alt="people" class="img-circle width-80" />
+				  %end
+                </a>
+                <h4 class="text-display-1 margin-none">{{type}}</h4>
+              </div>
+            </div>
+         <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+              <input type="text" name="q" class="form-control" placeholder="Search...">
+              <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </form>
+        <ul class="sidebar-menu">
+          <li><a href="/homemember"><i class="fa fa-home"></i><span>Home</span></a></li>
+          <li><a href="/profilemember"><i class="fa fa-user "></i><span>Profile</span></a></li>
+          <li class="active"><a href="/projectmember"><i class="fa fa-tasks  "></i><span>Project</span></a></li>
+          <li class="hasSubmenu">
+            <a href="#forum-menu"><i class="fa fa-file-text-o"></i><span>Forum</span></a>
+            <ul id="forum-menu">
+               <li><a href="/forumGeneral"><span>Forum General</span></a></li>
+                  <li><a href="/forumDefence"><span>Forum Hacking Defense</span></a></li>
+                  <li><a href="/forumZeroDay"><span>Forum Zero Day Vulnerability</span></a></li>
+            </ul>
+          </li>
+          <li><a href="/logout"><i class="fa fa-sign-out"></i><span>Logout</span></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- sidebar effects OUTSIDE of st-pusher: -->
+    <!-- st-effect-1, st-effect-2, st-effect-4, st-effect-5, st-effect-9, st-effect-10, st-effect-11, st-effect-12, st-effect-13 -->
+
+    <!-- content push wrapper -->
+    <div class="st-pusher" id="content">
+
+      <!-- sidebar effects INSIDE of st-pusher: -->
+      <!-- st-effect-3, st-effect-6, st-effect-7, st-effect-8, st-effect-14 -->
+
+      <!-- this is the wrapper for the content -->
+      <div class="st-content">
+
+        <!-- extra div for emulating position:fixed of the menu -->
+        <div class="st-content-inner padding-none">
+
+          <div class="container-fluid">
+            <div class="row" data-toggle="isotope">
+              
+                 <!--  <div class="page-section">
+                    <h1 class="text-display-1 margin-none">Forum</h1>
+                  </div> -->
+      
+
+				%if resdatakonten:
+                  <div class="page-section">
+                    <div class="media media-overflow-visible s-container">
+                      <div class="media-body">
+                        <h1 class="text-display-1 margin-top-none">{{resdatakonten[0]['forum_tittle']}}</h1>
+                        <p class="text-light text-caption">
+                          posted by
+                          <a href="#">
+						    %if resdatakonten[0]['photoauthor'] == "":
+                            <img src="images/people/photo.png" alt="person" class="img-circle width-20" />
+							%else:
+							<img src="images/people/{{resdatakonten[0]['photoauthor']}}" alt="person" class="img-circle width-20" />
+							%end
+							 {{resdatakonten[0]['username1']}}</a> &nbsp; | <i class="fa fa-clock-o fa-fw"></i> {{resdatakonten[0]['datepost']}}
+                        </p>
+                      </div>
+                   
+           
+                    </div>
+                  </div>
+
+                <p> {{! resdatakonten[0]['forum_content']}}</p>
+				%end
+				%for datakomen in 	resdatakomen:
+					<div class="media s-container">
+						  <div class="media-left">
+							<div class="text-center"></div>
+						  </div>
+						  <!-- isi komen -->
+						  <div class="media-body">
+							<div class="panel panel-default">
+							  <div class="panel-body">
+								<a href="#">
+										%if datakomen['imagepersonal'] == "":
+										<img src="images/people/50/photo.png" alt="person" class="img-circle width-20" />
+										%else:
+										<img src="images/people/{{datakomen['imagepersonal']}}" alt="person" class="img-circle width-20" />
+										%end
+										{{datakomen['username2']}}</a> &nbsp; | <i class="fa fa-clock-o fa-fw"></i> {{datakomen['comment_date']}}
+								<p></p>
+								{{! datakomen['comment_content']}}	
+							  </div>
+							</div>
+						  </div>
+					</div>
+				%end
+						%if error !=0:
+							<div class="alert alert-danger">
+								<a href="#" class="close" data-dismiss="alert">&times;</a>
+								<strong>Failed</strong> {{error}}
+							</div>	
+						%end
+				<div class="page-section padding-top-none">
+				  <div class="panel panel-default paper-shadow" data-z="0.5">
+					<div class="panel-heading">
+					  <h4 class="text-headline">Post a reply</h4>
+					</div>
+					<div class="panel-body">
+					  <form action="/postreply" method="post">
+						<div class="form-group form-control-material">
+						  <textarea id="reply" name="reply" class="form-control" placeholder="Your comment .."></textarea>
+						  <input type="hidden" name="title" value="{{resdatakonten[0]['forum_tittle']}}">
+						  <input type="hidden" name="type" value="{{resdatakonten[0]['typepost']}}">
+						  <input type="hidden" name="forumid" value="{{resdatakonten[0]['_id']}}">
+						  <input type="hidden" name="username1" value="{{resdatakonten[0]['username1']}}">
+						</div>
+						<div class="text-right">
+						  <button class="btn btn-primary" type="submit">post a reply <i class="fa fa-plus"></i></button>
+						</div>
+					  </form>
+					</div>
+				  </div>
+				</div>
+              </div>
+  
+            <br/>
+
+          </div>
+
+        </div>
+        <!-- /st-content-inner -->
+
+      </div>
+      <!-- /st-content -->
+
+    </div>
+    <!-- /st-pusher -->
+
+    <!-- Footer -->
+    <footer class="footer">
+       <strong>Nuzzle</strong> &copy; Copyright 2015
+    </footer>
+    <!-- // Footer -->
+
+  </div>
+  <!-- /st-container -->
+
+  <!-- Inline Script for colors and config objects; used by various external scripts; -->
+  <script>
+    var colors = {
+      "danger-color": "#e74c3c",
+      "success-color": "#81b53e",
+      "warning-color": "#f0ad4e",
+      "inverse-color": "#2c3e50",
+      "info-color": "#2d7cb5",
+      "default-color": "#6e7882",
+      "default-light-color": "#cfd9db",
+      "purple-color": "#9D8AC7",
+      "mustard-color": "#d4d171",
+      "lightred-color": "#e15258",
+      "body-bg": "#f6f6f6"
+    };
+    var config = {
+      theme: "html",
+      skins: {
+        "default": {
+          "primary-color": "#42a5f5"
+        }
+      }
+    };
+  </script>
+
+  <script src="js/vendor/all.js"></script>
+
+  <script src="js/app/app.js"></script>
+
+
+</body>
+
+</html>

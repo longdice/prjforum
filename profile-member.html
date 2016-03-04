@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html class="st-layout ls-top-navbar-large ls-bottom-footer show-sidebar sidebar-l3" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Nuzzle</title>
+
+
+  <link href="css/vendor/all.css" rel="stylesheet">
+
+  <link href="css/app/app.css" rel="stylesheet">
+  <script>
+    $(document).ready(function(){
+      $('.status').click(function(e){ 
+        $('.arrow').css("left", 0);
+        e.preventDefault();
+     });
+     $('.photos').click(function(e) {
+        $('.arrow').css("left", 146);
+        e.preventDefault();
+    });
+
+});
+  </script>
+
+</head>
+
+<body>
+
+  <!-- Wrapper required for sidebar transitions -->
+  <div class="st-container">
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-size-large navbar-default navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+       
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="main-nav">
+          <img src="images/people/110/logopelin.gif" alt="people" height="70px" weight="100px" />
+          <ul class="nav navbar-nav navbar-nav-bordered navbar-right">
+            <!-- notifications -->
+            <li class="dropdown notifications updates">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-bell-o"></i>
+               <!--  <span class="badge badge-primary">4</span> -->
+              </a>
+              <ul class="dropdown-menu" role="notification">
+                <li class="dropdown-header">Notifications</li>
+                <li class="media">
+                  <div class="pull-right">
+                    <span class="label label-success">New</span>
+                  </div>
+                  <div class="media-left">
+                    <img src="images/people/110/photo.png" alt="people" class="img-circle" width="30">
+                  </div>
+                  <div class="media-body">
+                    <a href="#">Adrian D.</a> posted <a href="#">a photo</a> on his timeline.
+                    <br/>
+                    <span class="text-caption text-muted">5 mins ago</span>
+                  </div>
+                </li>
+                <li class="media">
+                  <div class="pull-right">
+                    <span class="label label-success">New</span>
+                  </div>
+                  <div class="media-left">
+                    <img src="images/people/110/photo.png" alt="people" class="img-circle" width="30">
+                  </div>
+                  <div class="media-body">
+                    <a href="#">Bill</a> posted <a href="#">a comment</a> on Adrian's recent <a href="#">post</a>.
+                    <br/>
+                    <span class="text-caption text-muted">3 hrs ago</span>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <!-- // END notifications -->
+            <!-- User -->
+            <div class="navbar-right">
+			  <ul class="nav navbar-nav navbar-nav-bordered navbar-nav-margin-right">
+				<!-- user -->
+				<li class="dropdown user active">
+				  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					  %if images == "":
+						<img src="images/people/photo.png" alt="" class="img-circle" />{{name}}<span class="caret"></span>			  
+					  %else:
+						<img src="images/people/{{images}}" alt="" class="img-circle" />{{name}}<span class="caret"></span>
+					  %end			  
+				  </a>
+				  <ul class="dropdown-menu" role="menu">
+					<li><a href="/EditProfileMember"><i class="fa fa-user"></i>Edit Profile</a></li>
+					<li><a href="/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+				  </ul>
+				</li>
+				<!-- // END user -->
+			  </ul>
+          
+			</div>
+        </div>
+        <!-- /.navbar-collapse -->
+
+      </div>
+    </div>
+
+    <!-- Sidebar component with st-effect-1 (set on the toggle button within the navbar) -->
+    <div class="sidebar left sidebar-size-3 sidebar-offset-0 sidebar-visible-desktop sidebar-visible-mobile sidebar-skin-dark" id="sidebar-menu" data-type="collapse">
+      <div class
+          <div data-scrollable>
+
+            <div class="sidebar-block">
+              <div class="profile">
+                <a href="#">
+				  %if images == "":
+				    <img src="images/people/photo.png" alt="people" class="img-circle width-80" />				  
+				  %else:
+				    <img src="images/people/{{images}}" alt="people" class="img-circle width-80" />
+				  %end
+                </a>
+                <h4 class="text-display-1 margin-none">{{type}}</h4>
+              </div>
+            </div>
+             <form action="#" method="get" class="sidebar-form">
+                <div class="input-group">
+                  <input type="text" name="q" class="form-control" placeholder="Search...">
+                  <span class="input-group-btn">
+                    <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+                  </span>
+                </div>
+              </form>
+        <ul class="sidebar-menu">
+          <li><a href="/homemember"><i class="fa fa-home"></i><span>Home</span></a></li>
+          <li><a href="/profilemember"><i class="fa fa-user "></i><span>Profile</span></a></li>
+          <li class="active"><a href="/projectmember"><i class="fa fa-tasks  "></i><span>Project</span></a></li>
+          <li class="hasSubmenu">
+            <a href="#forum-menu"><i class="fa fa-file-text-o"></i><span>Forum</span></a>
+            <ul id="forum-menu">
+               <li><a href="/forumGeneral"><span>Forum General</span></a></li>
+                  <li><a href="/forumDefence"><span>Forum Hacking Defense</span></a></li>
+                  <li><a href="/forumZeroDay"><span>Forum Zero Day Vulnerability</span></a></li>
+            </ul>
+          </li>
+          <li><a href="/logout"><i class="fa fa-sign-out"></i><span>Logout</span></a></li>
+        </ul>
+          </div>
+    </div>
+
+    <div class="st-pusher" id="content">
+
+      <div class="st-content">
+
+        <div class="st-content-inner padding-none">
+
+          <div class="container-fluid">
+            <div class="row" data-toggle="isotope">
+
+            <div class="page-section">
+              <h1 class="text-display-1 margin-none">{{name}}</h1>
+            </div>
+    
+            <div class="row">
+              <div class="col-md-12">
+                <div class="col-xs-6"> 
+                  <div class="panel panel-default paper-shadow" data-z="0.5">
+                    <div class="panel-heading">
+                      <div class="media-left media-padding">
+                          <a class="btn btn-white paper-shadow relative" data-z="0.5" data-hover-z="1" data-animated href="/showfollowers">
+                                <!-- <?php echo $follower;?> -> ini buat masukin jumlah follower nya  --> Followers 
+                          </a>
+
+                      </div>
+                       <div class="media-right media-padding">
+                          <h4 class="text-headline margin-none">2</h4>
+    
+                      </div>
+                      
+                      <!-- <h4 class="text-headline margin-none">Courses</h4>
+                      <p class="text-subhead text-light">Your recent courses</p> -->
+                    </div>
+                  </div>
+                 </div> 
+
+                 <div class="col-xs-6"> 
+                  <div class="panel panel-default paper-shadow" data-z="0.5">
+                    <div class="panel-heading">
+                      <div class="media-right media-padding">
+                          <a class="btn btn-white paper-shadow relative" data-z="0.5" data-hover-z="1" data-animated href="/showfollowing">
+                              <!-- <?php echo $follower;?> -> ini buat masukin jumlah follower nya  -->  Following
+                          </a>
+                      </div>
+                       <div class="media-right media-padding">
+                          <h4 class="text-headline margin-none">1</h4>
+    
+                      </div>
+                      <!-- <h4 class="text-headline margin-none">Courses</h4>
+                      <p class="text-subhead text-light">Your recent courses</p> -->
+                    </div>
+                  </div>
+                 </div>  
+
+              </div>
+            </div>
+
+             <div class="container-fluid">
+            <div class="row" data-toggle="isotope">
+              <div class="item col-xs-12 col-lg-8">
+                 <h4 class="text-headline" "margin-bottom = 100px">What I've Shared</h4>
+                       <form action="/updatestatus" method="post" role="form" enctype="multipart/form-data" class="update-status-form">
+                            <ul class="post-types">
+                              <li class="post-type">
+                                <a class="status" title="" href="#"><i class="fa fa-file"></i> Share an Update</a>
+                              </li>
+                             
+                            </ul>
+                            <div class="share">
+                              <div class="arrow"><i class="fa fa-arrow-up"></i></div>
+                              <div class="panel panel-default">
+                                        <div class="panel-heading"><i class="fa fa-file"></i> Update Status</div>
+                                        <div class="panel-body">
+                                          <div class="">
+                                              <textarea name="message" cols="40" rows="10" id="status_message" class="form-control message" style="height: 62px; overflow: hidden;" placeholder="What's on your mind ?"></textarea> 
+                                </div>
+                                        </div>
+                                <div class="panel-footer">
+                                  <div class="row">
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <div class="btn-group">
+                                          <!--<button type="button" class="btn btn-default"><i class="icon icon-picture"></i> Photo</button>-->
+                                        <input type="file" name="upload">
+										<input type="hidden" class="form-control used" id="ContactPerson" name ="hide" value="images\timeline\">
+										<input type="hidden" class="form-control used" id="location" name ="location" value="profilemember">  
+                                        </div>
+                                      </div>
+                                    </div>
+                                  <!--  <div class = "media-right"> -->
+                                      <div class="col-md-6" >
+                                        <div class="form-group">
+                                             <div class="media-right">
+                                                 <input type="submit" name="submit" value="Post" class="btn btn-primary btn-sm no-radius">
+                                              </div>                                
+                                                                        
+                                        </div>
+                                      </div>
+                                    <!-- </div>  -->
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+                <ul class="timeline">
+				%if dataposting:
+					%for value in dataposting:
+					<li class="time-label">
+					  <span class="bg-green">
+						{{value['datepost']}}
+					  </span>
+					</li>
+					
+					<li>
+						%if value['typePost'] =="article" or value['typePost'] !="article":
+							%if value['images']:
+								<i class="fa fa-camera bg-blue"></i>
+							%else:
+								<i class="fa fa-envelope bg-blue"></i>
+							%end
+						%end
+					  <div class="timeline-item">
+						<!--<span class="time"><i class="fa fa-clock-o"></i> 13.00</span>-->
+						<h3 class="timeline-header"><a href="#">{{value['username1']}}</a> uploaded new photos</h3>
+						<div class="timeline-body">
+						    %if value['images']:
+								<img src="images/timeline/{{value['images']}}" width="110px" height="110px" alt="..." class="margin">
+							%end
+							{{value['Post_content']}}
+						</div>
+						<div class="timeline-footer">
+						  <a class="btn btn-primary btn-xs"><i class="fa fa-thumbs-o-up "></i>
+							<span class="badge badge-primary"></span>1</a>
+						 <a href="/comment" class="btn btn-xs bg-blue" href="/comment"><i class="fa fa-comments fa-fw "></i>
+						  <span class="badge badge-primary"></span></a>
+						</div>
+					  </div>
+					</li>								
+					%end
+				%end
+              </ul>
+            </div>
+             
+            
+
+
+              <div class="item col-xs-12 col-lg-4">
+                <br>
+              <h4 class="text-headline" "margin-bottom = 200px">Profile Details</h4>
+                <div class="panel panel-default paper-shadow" data-z="0.5">
+                     <div class="panel-body list-group">
+                      <ul class="list-group">
+                        <li class="list-group-item">
+                          Name : 
+                          <a class="list-group-link" href="#">{{name}}</a> &nbsp; </a>
+                        </li>
+                        <li class="list-group-item">
+                          Email : 
+                          <a class="list-group-link" href="#">{{email}}</a> &nbsp; </a>
+                        </li>
+                        <li class="list-group-item">
+                          Phone Number : 
+                          <a class="list-group-link" href="#">{{phone}}</a> &nbsp; </a>
+                        </li>
+                       
+                       
+                      </ul>
+                    </div>
+                
+
+
+                </div>
+
+
+
+              </div>
+
+              <div class="item col-xs-12 col-lg-4">
+                <br>
+
+              <h4 class="text-headline" "margin-bottom = 200px">My Project({{totalprojekbymember}})</h4>
+                <div class="panel panel-default paper-shadow" data-z="0.5">
+                  
+                 <div class="list-group margin-none">
+                    %for dataProject in listProjectTake:  
+					  <div class="list-group-item media v-middle">
+                        <div class="media-left">
+                              <div class="bg-blue-400 text-white">
+                                 <div class="panel-body">
+                                     <a href="#upload1" data-toggle="modal" class="link-text-color"><i class="fa fa-tasks fa-fw fa-2x"></i></a> 
+                                 </div>
+                              </div>
+                        </div>
+                        <div class="media-body">
+                          <h4 class="media-heading">
+                            <a href="#upload1" data-toggle="modal" class="link-text-color">{{dataProject['ProjectName']}}</a>
+                          </h4>
+                        </div>
+                      </div>
+					%end 
+                    </div>
+                </div>
+
+              </div>
+
+
+            </div>
+
+            <br/>
+
+          </div> 
+           
+
+            </div>
+
+            <br/>
+
+          </div>
+
+        </div>
+        <!-- /st-content-inner -->
+
+      </div>
+      <!-- /st-content -->
+
+    </div>
+    <!-- /st-pusher -->
+
+    <!-- Footer -->
+    <footer class="footer">
+       <strong>Nuzzle</strong> &copy; Copyright 2015
+    </footer>
+    <!-- // Footer -->
+
+  </div>
+  <!-- /st-container -->
+
+  <!-- Inline Script for colors and config objects; used by various external scripts; -->
+  <script>
+    var colors = {
+      "danger-color": "#e74c3c",
+      "success-color": "#81b53e",
+      "warning-color": "#f0ad4e",
+      "inverse-color": "#2c3e50",
+      "info-color": "#2d7cb5",
+      "default-color": "#6e7882",
+      "default-light-color": "#cfd9db",
+      "purple-color": "#9D8AC7",
+      "mustard-color": "#d4d171",
+      "lightred-color": "#e15258",
+      "body-bg": "#f6f6f6"
+    };
+    var config = {
+      theme: "html",
+      skins: {
+        "default": {
+          "primary-color": "#42a5f5"
+        }
+      }
+    };
+  </script>
+
+  <!-- Vendor Scripts Bundle
+    Includes all of the 3rd party JavaScript libraries above.
+    The bundle was generated using modern frontend development tools that are provided with the package
+    To learn more about the development process, please refer to the documentation.
+    Do not use it simultaneously with the separate bundles above. -->
+  <script src="js/vendor/all.js"></script>
+
+  <!-- Vendor Scripts Standalone Libraries -->
+  <!-- <script src="js/vendor/core/all.js"></script> -->
+  <!-- <script src="js/vendor/core/jquery.js"></script> -->
+  <!-- <script src="js/vendor/core/bootstrap.js"></script> -->
+  <!-- <script src="js/vendor/core/breakpoints.js"></script> -->
+  <!-- <script src="js/vendor/core/jquery.nicescroll.js"></script> -->
+  <!-- <script src="js/vendor/core/isotope.pkgd.js"></script> -->
+  <!-- <script src="js/vendor/core/packery-mode.pkgd.js"></script> -->
+  <!-- <script src="js/vendor/core/jquery.grid-a-licious.js"></script> -->
+  <!-- <script src="js/vendor/core/jquery.cookie.js"></script> -->
+  <!-- <script src="js/vendor/core/jquery-ui.custom.js"></script> -->
+  <!-- <script src="js/vendor/core/jquery.hotkeys.js"></script> -->
+  <!-- <script src="js/vendor/core/handlebars.js"></script> -->
+  <!-- <script src="js/vendor/core/jquery.hotkeys.js"></script> -->
+  <!-- <script src="js/vendor/core/load_image.js"></script> -->
+  <!-- <script src="js/vendor/core/jquery.debouncedresize.js"></script> -->
+  <!-- <script src="js/vendor/core/modernizr.js"></script> -->
+  <!-- <script src="js/vendor/core/velocity.js"></script> -->
+  <!-- <script src="js/vendor/tables/all.js"></script> -->
+  <!-- <script src="js/vendor/forms/all.js"></script> -->
+  <!-- <script src="js/vendor/media/slick.js"></script> -->
+  <!-- <script src="js/vendor/charts/flot/all.js"></script> -->
+  <!-- <script src="js/vendor/nestable/jquery.nestable.js"></script> -->
+  <!-- <script src="js/vendor/countdown/all.js"></script> -->
+  <!-- <script src="js/vendor/angular/all.js"></script> -->
+
+  <!-- App Scripts Bundle
+    Includes Custom Application JavaScript used for the current theme/module;
+    Do not use it simultaneously with the standalone modules below. -->
+  <script src="js/app/app.js"></script>
+
+
+</body>
+
+</html>

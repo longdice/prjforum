@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html class="st-layout ls-top-navbar-large ls-bottom-footer show-sidebar sidebar-l3" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Nuzzle</title>
+
+  <link href="css/vendor/all.css" rel="stylesheet">
+
+  <link href="css/app/app.css" rel="stylesheet">
+  <script>
+    $(document).ready(function(){
+      $('.status').click(function(e){ 
+        $('.arrow').css("left", 0);
+        e.preventDefault();
+     });
+     $('.photos').click(function(e) {
+        $('.arrow').css("left", 146);
+        e.preventDefault();
+    });
+
+});
+  </script>
+
+</head>
+
+<body>
+
+  <!-- Wrapper required for sidebar transitions -->
+  <div class="st-container">
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-size-large navbar-default navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+       
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="main-nav">
+           <img src="images/people/110/logopelin.gif" alt="people" height="70px" weight="100px" />
+          <ul class="nav navbar-nav navbar-nav-bordered navbar-right">
+            <!-- notifications -->
+           
+            <!-- // END notifications -->
+            <!-- User -->
+			<div class="navbar-right">
+			  <ul class="nav navbar-nav navbar-nav-bordered navbar-nav-margin-right">
+				<!-- user -->
+				<li class="dropdown user active">
+				  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					  %if images == "":
+						<img src="images/people/photo.png" alt="" class="img-circle" />{{name}}<span class="caret"></span>			  
+					  %else:
+						<img src="images/people/{{images}}" alt="" class="img-circle" />{{name}}<span class="caret"></span>
+					  %end			  
+				  </a>
+				  <ul class="dropdown-menu" role="menu">
+					<li><a href="/EditProfileClient"><i class="fa fa-user"></i>Edit Profile</a></li>
+					<li><a href="/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+				  </ul>
+				</li>
+				<!-- // END user -->
+			  </ul>
+			</div>
+        </div>
+        <!-- /.navbar-collapse -->
+
+      </div>
+    </div>
+
+    <!-- Sidebar component with st-effect-1 (set on the toggle button within the navbar) -->
+    <div class="sidebar left sidebar-size-3 sidebar-offset-0 sidebar-visible-desktop sidebar-visible-mobile sidebar-skin-dark" id="sidebar-menu" data-type="collapse">
+      <div class
+          <div data-scrollable>
+
+            <div class="sidebar-block">
+              <div class="profile">
+                <a href="#">
+				  %if images == "":
+				    <img src="images/people/photo.png" alt="people" class="img-circle width-80" />				  
+				  %else:
+				    <img src="images/people/{{images}}" alt="people" class="img-circle width-80" />
+				  %end
+                </a>
+                <h4 class="text-display-1 margin-none">{{type}}</h4>
+              </div>
+            </div>
+             <form action="#" method="get" class="sidebar-form">
+                <div class="input-group">
+                  <input type="text" name="q" class="form-control" placeholder="Search...">
+                  <span class="input-group-btn">
+                    <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+                  </span>
+                </div>
+              </form>
+            <ul class="sidebar-menu">
+              <li  class="active"><a href="/adminhome"><i class="fa fa-bar-chart-o"></i><span>Manage Account</span></a></li>
+              <li><a href="/manageproject"><i class="fa fa-tasks "></i><span>Manage Project</span></a></li>
+              <li><a href="/managetimeline"><i class="fa fa-th  "></i><span>Content Timeline</span></a></li>
+              <li class="hasSubmenu">
+                <a href="#forum-menu"><i class="fa fa-file-text-o"></i><span>Manage Forum</span></a>
+				<ul id="forum-menu">
+				   <li><a href="/manageforumgeneral"><span>Forum General</span></a></li>
+					  <li><a href="/manageforumdefence"><span>Forum Hacking Defense</span></a></li>
+					  <li><a href="/manageforumzeroday"><span>Forum Zero Day Vulnerability</span></a></li>
+				</ul>
+              </li>
+              <li><a href="/logout"><i class="fa fa-sign-out"></i><span>Logout</span></a></li>
+            </ul>
+          </div>
+    </div>
+
+
+    <div class="st-pusher" id="content">
+
+      <!-- sidebar effects INSIDE of st-pusher: -->
+      <!-- st-effect-3, st-effect-6, st-effect-7, st-effect-8, st-effect-14 -->
+
+      <!-- this is the wrapper for the content -->
+      <div class="st-content">
+
+        <!-- extra div for emulating position:fixed of the menu -->
+        <div class="st-content-inner padding-none">
+
+          <div class="container-fluid">
+            <div class="row" data-toggle="isotope">
+    
+
+            <div class="page-section">
+              <h1 class="text-display-1 margin-none">Manage Forum</h1>
+            </div>
+    
+           <div class="list-group-item media v-middle">
+                        <div class="tabbable paper-shadow relative" data-z="0.5">
+                          <div class="panel panel-default paper-shadow" data-z="0.5">
+                            <ul class="list-group">
+                              <li class="list-group-item">
+                                <div class="media v-middle">
+                                  <div class="media-body">
+                                    <h4 class="text-headline margin-none">
+                                      <a href="#" class="link-text-color">Forum Zero day</a>
+                                    </h4>
+                                    <p class="text-subhead text-light">This is forum general you can discus about defence from 0day Exploit.</p>
+                                  </div>
+                                  <div class="media-right">
+                                    <a href="newThreadForum.html" class="btn btn-white btn-flat"><i class="fa fa-fw fa-plus"></i> New Thread</a>
+                                  </div>
+                                </div>
+                              </li>
+
+                             
+                             <li class="list-group-item media v-middle">
+                                <div class="media-left">
+                                  <div class="icon-block half img-circle bg-grey-300">
+                                    <i class="fa fa-file-text text-white"></i>
+                                  </div>
+                                </div>
+                                <div class="media-body">
+                                  <h4 class="text-subhead margin-none">
+                                    <a href="adminforum.html" class="link-text-color">I think this is the right way?</a>
+                                  </h4>
+                                  <div class="text-light text-caption">
+                                    posted by
+                                    <a href="#">
+                                      <img src="images/people/110/photo.png" alt="person" class="img-circle width-20" /> Michelle Gustav</a> &nbsp; | <i class="fa fa-clock-o fa-fw"></i> 5 mins
+                                  </div>
+                                </div>
+                                <div class="media-right">
+                                 <a href="#" class="btn btn-danger btn-xs">Remove</a>  
+                                </div>
+                              </li>
+
+                             
+                             <li class="list-group-item media v-middle">
+                                <div class="media-left">
+                                  <div class="icon-block half img-circle bg-grey-300">
+                                    <i class="fa fa-file-text text-white"></i>
+                                  </div>
+                                </div>
+                                <div class="media-body">
+                                  <h4 class="text-subhead margin-none">
+                                    <a href="adminforum.html" class="link-text-color">I think this is the right way?</a>
+                                  </h4>
+                                  <div class="text-light text-caption">
+                                    posted by
+                                    <a href="#">
+                                      <img src="images/people/110/photo.png" alt="person" class="img-circle width-20" /> Michelle Gustav</a> &nbsp; | <i class="fa fa-clock-o fa-fw"></i> 5 mins
+                                  </div>
+                                </div>
+                                <div class="media-right">
+                                 <a href="#" class="btn btn-danger btn-xs">Remove</a>  
+                                </div>
+                              </li>
+
+
+                             
+
+
+                            </ul>
+                          </div> 
+                        </div>    
+                      </div>
+                    
+
+           
+            
+            </div>
+
+            <br/>
+
+          </div>
+
+        </div>
+        <!-- /st-content-inner -->
+
+      </div>
+      <!-- /st-content -->
+
+    </div>
+    <!-- /st-pusher -->
+
+    <!-- Footer -->
+    <footer class="footer">
+       <strong>Nuzzle</strong> &copy; Copyright 2015
+    </footer>
+    <!-- // Footer -->
+
+  </div>
+  <!-- /st-container -->
+
+  <!-- Inline Script for colors and config objects; used by various external scripts; -->
+  <script>
+    var colors = {
+      "danger-color": "#e74c3c",
+      "success-color": "#81b53e",
+      "warning-color": "#f0ad4e",
+      "inverse-color": "#2c3e50",
+      "info-color": "#2d7cb5",
+      "default-color": "#6e7882",
+      "default-light-color": "#cfd9db",
+      "purple-color": "#9D8AC7",
+      "mustard-color": "#d4d171",
+      "lightred-color": "#e15258",
+      "body-bg": "#f6f6f6"
+    };
+    var config = {
+      theme: "html",
+      skins: {
+        "default": {
+          "primary-color": "#42a5f5"
+        }
+      }
+    };
+  </script>
+
+  <!-- Vendor Scripts Bundle
+    Includes all of the 3rd party JavaScript libraries above.
+    The bundle was generated using modern frontend development tools that are provided with the package
+    To learn more about the development process, please refer to the documentation.
+    Do not use it simultaneously with the separate bundles above. -->
+  <script src="js/vendor/all.js"></script>
+
+  <!-- Vendor Scripts Standalone Libraries -->
+  <!-- <script src="js/vendor/core/all.js"></script> -->
+  <!-- <script src="js/vendor/core/jquery.js"></script> -->
+  <!-- <script src="js/vendor/core/bootstrap.js"></script> -->
+  <!-- <script src="js/vendor/core/breakpoints.js"></script> -->
+  <!-- <script src="js/vendor/core/jquery.nicescroll.js"></script> -->
+  <!-- <script src="js/vendor/core/isotope.pkgd.js"></script> -->
+  <!-- <script src="js/vendor/core/packery-mode.pkgd.js"></script> -->
+  <!-- <script src="js/vendor/core/jquery.grid-a-licious.js"></script> -->
+  <!-- <script src="js/vendor/core/jquery.cookie.js"></script> -->
+  <!-- <script src="js/vendor/core/jquery-ui.custom.js"></script> -->
+  <!-- <script src="js/vendor/core/jquery.hotkeys.js"></script> -->
+  <!-- <script src="js/vendor/core/handlebars.js"></script> -->
+  <!-- <script src="js/vendor/core/jquery.hotkeys.js"></script> -->
+  <!-- <script src="js/vendor/core/load_image.js"></script> -->
+  <!-- <script src="js/vendor/core/jquery.debouncedresize.js"></script> -->
+  <!-- <script src="js/vendor/core/modernizr.js"></script> -->
+  <!-- <script src="js/vendor/core/velocity.js"></script> -->
+  <!-- <script src="js/vendor/tables/all.js"></script> -->
+  <!-- <script src="js/vendor/forms/all.js"></script> -->
+  <!-- <script src="js/vendor/media/slick.js"></script> -->
+  <!-- <script src="js/vendor/charts/flot/all.js"></script> -->
+  <!-- <script src="js/vendor/nestable/jquery.nestable.js"></script> -->
+  <!-- <script src="js/vendor/countdown/all.js"></script> -->
+  <!-- <script src="js/vendor/angular/all.js"></script> -->
+
+  <!-- App Scripts Bundle
+    Includes Custom Application JavaScript used for the current theme/module;
+    Do not use it simultaneously with the standalone modules below. -->
+  <script src="js/app/app.js"></script>
+
+  <!-- App Scripts Standalone Modules
+    As a convenience, we provide the entire UI framework broke down in separate modules
+    Some of the standalone modules may have not been used with the current theme/module
+    but ALL the modules are 100% compatible -->
+
+  <!-- <script src="js/app/essentials.js"></script> -->
+  <!-- <script src="js/app/material.js"></script> -->
+  <!-- <script src="js/app/layout.js"></script> -->
+  <!-- <script src="js/app/sidebar.js"></script> -->
+  <!-- <script src="js/app/media.js"></script> -->
+  <!-- <script src="js/app/messages.js"></script> -->
+  <!-- <script src="js/app/maps.js"></script> -->
+  <!-- <script src="js/app/charts.js"></script> -->
+
+  <!-- App Scripts CORE [html]:
+        Includes the custom JavaScript for this theme/module;
+        The file has to be loaded in addition to the UI modules above;
+        app.js already includes main.js so this should be loaded
+        ONLY when using the standalone modules; -->
+  <!-- <script src="js/app/main.js"></script> -->
+
+</body>
+
+</html>

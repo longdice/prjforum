@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html class="st-layout ls-top-navbar-large ls-bottom-footer show-sidebar sidebar-l3" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Nuzzle</title>
+
+  <link href="css/vendor/all.css" rel="stylesheet">
+
+  <link href="css/app/app.css" rel="stylesheet">
+  <script>
+    $(document).ready(function(){
+      $('.status').click(function(e){ 
+        $('.arrow').css("left", 0);
+        e.preventDefault();
+     });
+     $('.photos').click(function(e) {
+        $('.arrow').css("left", 146);
+        e.preventDefault();
+    });
+
+});
+  </script>
+ 
+</head>
+
+<body>
+
+  <!-- Wrapper required for sidebar transitions -->
+  <div class="st-container">
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-size-large navbar-default navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+       
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="main-nav">
+           <img src="images/people/110/logopelin.gif" alt="people" height="70px" weight="100px" />
+          <ul class="nav navbar-nav navbar-nav-bordered navbar-right">
+            <!-- notifications -->
+            <li class="dropdown notifications updates">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-bell-o"></i>
+               <!--  <span class="badge badge-primary"></span> -->
+              </a>
+              <ul class="dropdown-menu" role="notification">
+                <li class="dropdown-header">Notifications</li>
+                <li class="media">
+                  <div class="pull-right">
+                    <span class="label label-success">New</span>
+                  </div>
+                  <div class="media-left">
+                    <img src="images/people/110/photo.png" alt="people" class="img-circle" width="30">
+                  </div>
+                  <div class="media-body">
+                    <a href="#">Kim</a> sent a decline reason<a href="#"></a>
+                    <br/>
+                    <span class="text-caption text-muted">5 mins ago</span>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <!-- // END notifications -->
+            <!-- User -->
+             <div class="navbar-right">
+			  <ul class="nav navbar-nav navbar-nav-bordered navbar-nav-margin-right">
+				<!-- user -->
+				<li class="dropdown user active">
+				  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					  %if images == "":
+						<img src="images/people/photo.png" alt="" class="img-circle" />{{name}}<span class="caret"></span>			  
+					  %else:
+						<img src="images/people/{{images}}" alt="" class="img-circle" />{{name}}<span class="caret"></span>
+					  %end			  
+				  </a>
+				  <ul class="dropdown-menu" role="menu">
+					<li><a href="/EditProfileMember"><i class="fa fa-user"></i>Edit Profile</a></li>
+					<li><a href="/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+				  </ul>
+				</li>
+				<!-- // END user -->
+			  </ul>
+			</div>
+        </div>
+        <!-- /.navbar-collapse -->
+
+      </div>
+    </div>
+
+    <!-- Sidebar component with st-effect-1 (set on the toggle button within the navbar) -->
+    <div class="sidebar left sidebar-size-3 sidebar-offset-0 sidebar-visible-desktop sidebar-visible-mobile sidebar-skin-dark" id="sidebar-menu" data-type="collapse">
+      <div data-scrollable>
+
+            <div class="sidebar-block">
+              <div class="profile">
+                <a href="#">
+				  %if images == "":
+				    <img src="images/people/photo.png" alt="people" class="img-circle width-80" />				  
+				  %else:
+				    <img src="images/people/{{images}}" alt="people" class="img-circle width-80" />
+				  %end
+                </a>
+                <h4 class="text-display-1 margin-none">{{type}}</h4>
+              </div>
+            </div>
+         <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+              <input type="text" name="q" class="form-control" placeholder="Search...">
+              <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </form>
+			<ul class="sidebar-menu">
+			  <li><a href="/homemember"><i class="fa fa-home"></i><span>Home</span></a></li>
+			  <li><a href="/profilemember"><i class="fa fa-user "></i><span>Profile</span></a></li>
+			  <li class="active"><a href="/projectmember"><i class="fa fa-tasks  "></i><span>Project</span></a></li>
+			  <li class="hasSubmenu">
+				<a href="#forum-menu"><i class="fa fa-file-text-o"></i><span>Forum</span></a>
+				<ul id="forum-menu">
+				   <li><a href="/forumGeneral"><span>Forum General</span></a></li>
+					  <li><a href="/forumDefence"><span>Forum Hacking Defense</span></a></li>
+					  <li><a href="/forumZeroDay"><span>Forum Zero Day Vulnerability</span></a></li>
+				</ul>
+			  </li>
+			  <li><a href="/logout"><i class="fa fa-sign-out"></i><span>Logout</span></a></li>
+			</ul>
+      </div>
+    </div>
+
+
+    <div class="st-pusher" id="content">
+
+  
+      <div class="st-content">
+
+        <div class="st-content-inner padding-none">
+
+          <div class="container-fluid">
+            <div class="row" data-toggle="isotope">
+              <div class="item col-xs-12 ">
+              
+                <div class="page-section">
+                  <h1 class="text-display-1 margin-none">Project</h1>
+                </div>
+                      <div class="tabbable paper-shadow relative" data-z="0.5">
+
+                        
+                     
+
+                        <ul class="nav nav-tabs">
+                          <li class="active"><a href="/listproject"><i class="fa fa-fw fa-download"></i> <span class="hidden-sm hidden-xs">List Project</span></a></li>
+                          <li><a href="/resultproject"><i class="fa fa-fw fa-upload"></i> <span class="hidden-sm hidden-xs">Result Project</span></a></li>
+                         
+                          
+                        </ul>
+         
+ 
+                <!-- Panes -->
+                <div class="tab-content">
+				   %for listdata in listProjectUnTake:	
+					  <div id="billing" class="tab-pane active">
+						<div class="list-group margin-none">
+						  <div class="list-group-item media v-middle">
+							<div class="media-left">
+								  <div class="bg-blue-400 text-white">
+									 <div class="panel-body">
+										 <a href="#prj{{listdata['_id']}}" data-toggle="modal" class="link-text-color"><i class="fa fa-tasks fa-fw fa-2x"></i></a> 
+									 </div>
+								  </div>
+							</div>
+							<div class="media-body">
+							  <h4 class="media-heading">
+								<a href="#prj{{listdata['_id']}}" data-toggle="modal" class="link-text-color">{{listdata['ProjectName']}}</a>
+							  </h4>
+							</div>
+							<div class="media-right">
+							  <form action="/takeit" method="post">
+								 <input type="hidden" value="{{listdata['idProject']}}" name="idProject">
+								 <input type="submit" value="Take It" data-toggle="modal" class="btn btn-white btn-flat">
+							  </form>
+							</div>
+						  </div>
+						</div>
+					  </div>
+					%end
+					
+                </div>
+              </div>
+			  %for listdata in listProjectUnTake:	
+              <div class="modal grow modal-backdrop-white fade" id="prj{{listdata['_id']}}">
+                <div class="modal-dialog modal-sm">
+                  <div class="v-cell">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title">Project's Detail</h4>
+                      </div>
+                      <div class="modal-body">
+                        <form>
+                          <div class="form-group">
+                            <div class="col-md-12">
+                              <div class="form-control-material">
+                                <div class="input-group">
+                                  <span class="input-group-addon"></span>
+								    <input type="text" class="form-control used" id="contact" value="{{listdata['ContactPerson']}}">
+                                  <label for="contact">Contact Person</label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="col-md-12">
+                              <div class="form-control-material">
+                                <div class="input-group">
+                                  <span class="input-group-addon"></span>
+                                  <input type="text" class="form-control used" id="projectName" value="{{listdata['ProjectName']}}">
+                                  <label for="projectName">Project's Name</label>								   
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="col-md-12">
+                              <div class="form-control-material">
+                                <div class="input-group">
+                                  <span class="input-group-addon"></span>
+                                  <input type="text" class="form-control used" id="projectFee" value="{{listdata['ProjectFee']}}">
+                                  <label for="projectFee">Project's Fee</label>								  
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="col-md-12">
+                              <div class="form-control-material">
+                                <div class="input-group">
+                                  <span class="input-group-addon"></span>
+                                  <input type="text" class="form-control used" id="deadline" value="{{listdata['Deadline']}}">
+                                  <label for="deadline">Project's Deadline </label>    
+                              </div>
+                            </div>
+                          </div>
+
+                         </br>
+                          <a class="btn btn-primary paper-shadow relative" data-z="0.5" data-hover-z="1" data-animated href="temp/{{listdata['idProject']}}"<i class="fa fa-fw fa-download"></i>Download Project </a>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+			%end
+                      </div>    
+
+
+                          </div>
+             
+
+
+
+
+
+
+             
+          
+            </div>
+
+            <br/>
+
+          </div>
+
+        </div>
+        <!-- /st-content-inner -->
+
+      </div>
+      <!-- /st-content -->
+
+    </div>
+    <!-- /st-pusher -->
+
+    <!-- Footer -->
+    <footer class="footer">
+       <strong>Nuzzle</strong> &copy; Copyright 2015
+    </footer>
+    <!-- // Footer -->
+
+  </div>
+ 
+ <script>
+    var colors = {
+      "danger-color": "#e74c3c",
+      "success-color": "#81b53e",
+      "warning-color": "#f0ad4e",
+      "inverse-color": "#2c3e50",
+      "info-color": "#2d7cb5",
+      "default-color": "#6e7882",
+      "default-light-color": "#cfd9db",
+      "purple-color": "#9D8AC7",
+      "mustard-color": "#d4d171",
+      "lightred-color": "#e15258",
+      "body-bg": "#f6f6f6"
+    };
+    var config = {
+      theme: "html",
+      skins: {
+        "default": {
+          "primary-color": "#42a5f5"
+        }
+      }
+    };
+  </script>
+  <script src="js/vendor/all.js"></script>
+
+  <script src="js/app/app.js"></script>
+
+</body>
+
+</html>

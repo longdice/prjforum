@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html class="transition-navbar-scroll top-navbar-xlarge bottom-footer" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Code Project</title>
+
+  <link href="css/vendor/all.css" rel="stylesheet">
+
+  <link href="css/app/app.css" rel="stylesheet">
+
+  <script src="js/vendor/all.js"></script>
+  <script>
+    $(document).ready(function(){
+        $('#datetimepicker6').datepicker();
+    });
+  </script>
+
+</head>
+<body>
+
+  <!-- Fixed navbar -->
+  <div class="navbar navbar-default navbar-fixed-top navbar-size-large navbar-size-xlarge paper-shadow" data-z="0" data-animated role="navigation">
+    <div class="container">
+      
+
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+             <div class="navbar-right">
+			 <img src="images/people/110/logopelin.gif" alt="people" height="70px" weight="100px" />
+			  <ul class="nav navbar-nav navbar-nav-bordered navbar-nav-margin-right">
+				<!-- user -->
+				<li class="dropdown user active">
+				  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					  %if images == "":
+						<img src="images/people/photo.png" alt="" class="img-circle" />{{name}}<span class="caret"></span>			  
+					  %else:
+						<img src="images/people/{{images}}" alt="" class="img-circle" />{{name}}<span class="caret"></span>
+					  %end			  
+				  </a>
+				  <ul class="dropdown-menu" role="menu">
+					<li><a href="/EditProfileClient"><i class="fa fa-user"></i>Edit Profile</a></li>
+					<li><a href="/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+				  </ul>
+				</li>
+				<!-- // END user -->
+			  </ul>
+			</div>
+      <!-- /.navbar-collapse -->
+
+    </div>
+  </div>
+
+  <div class="parallax overflow-hidden bg-blue-400 page-section third">
+    <div class="container parallax-layer" data-opacity="true">
+      <div class="media v-middle">
+        <div class="media-left text-center">
+          <a href="#">
+				  %if images == "":
+				    <img src="images/people/photo.png" alt="people" class="img-circle width-80" />				  
+				  %else:
+				    <img src="images/people/{{images}}" alt="people" class="img-circle width-80" />
+				  %end		  
+          </a>
+        </div>
+      
+        <div class="media-right">
+          <span class="label bg-blue-500">{{type}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="page-section">
+      <div class="row">
+
+        <div class="col-md-12">
+
+          <!-- Tabbable Widget -->
+          <div class="tabbable paper-shadow relative" data-z="0.5">
+
+            <!-- Tabs -->
+            <ul class="nav nav-tabs">
+			<li><a href="/clienthome"><i class="fa fa-fw fa-download"></i><span class="hidden-sm hidden-xs">Upload Project</span></a></li>
+            <li class="active"><a href="/clientdownload"><i class="fa fa-fw fa-upload"></i>
+			<span class="hidden-sm hidden-xs"></span>Download Project</a></li>
+            </ul>
+            <!-- // END Tabs -->
+            <div class="tab-content">
+				%if dataproject:
+					%for value in dataproject:
+                    
+					<div class="list-group margin-none">
+                      <div class="list-group-item media v-middle">
+					  
+                        <div class="media-body">
+                          <h4 class="media-heading">
+                            <a href="#upload1" data-toggle="modal" class="link-text-color">{{value['ProjectName']}}</a>
+                          </h4>
+                        </div>
+                         <div class="media-right">
+                              <div class="col-md-5" style="margin-top=100px">
+                                  <a href="temp/{{value['namefileproject']}}" data-toggle="modal" class="btn btn-primary paper-shadow relative" data-z="0.5" data-hover-z="1" data-animated>Download</a>
+                              </div>
+                          </div>
+                          <br>
+                           <div class="col-md-1">
+						   	<form action="/acceptproject" method="POST">
+                              <div class="media-right">
+							    <input type="hidden" value = "{{value['idProject']}}" name="idProject">
+                                <button type="submit" class="btn btn-primary paper-shadow relative" data-z="0.5" data-hover-z="1" data-animated>Accept</button>
+                              </div>
+							</form>
+                          </div>						  
+                           <div class="col-md-1">
+							<form action="/declineproject" method="POST">
+                              <div class="media-right">
+							    <input type="hidden" value = "{{value['idProject']}}" name="idProject">
+								<input type="submit" data-toggle="modal" class="btn btn-danger paper-shadow relative" value="Decline">
+                              </div>
+							</form>
+                          </div>
+						 
+                        </div>
+                      </div>
+					
+				%end	  
+					  
+            </div>
+
+
+          </div>
+          <!-- // END Tabbable Widget -->
+
+          <br/>
+          <br/>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <strong>Code Project</strong> &copy; Copyright 2015
+  </footer>
+  <!-- // Footer -->
+
+  <!-- Inline Script for colors and config objects; used by various external scripts; -->
+  <script>
+    var colors = {
+      "danger-color": "#e74c3c",
+      "success-color": "#81b53e",
+      "warning-color": "#f0ad4e",
+      "inverse-color": "#2c3e50",
+      "info-color": "#2d7cb5",
+      "default-color": "#6e7882",
+      "default-light-color": "#cfd9db",
+      "purple-color": "#9D8AC7",
+      "mustard-color": "#d4d171",
+      "lightred-color": "#e15258",
+      "body-bg": "#f6f6f6"
+    };
+    var config = {
+      theme: "html",
+      skins: {
+        "default": {
+          "primary-color": "#42a5f5"
+        }
+      }
+    };
+  </script>
+  <script src="js/app/app.js"></script>
+</body>
+
+</html>
